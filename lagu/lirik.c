@@ -9,3 +9,15 @@
 char kataunik[MAX_WORDS][MAX_WORD_LEN]; 
 int hitungkata = 0; 
 char judul[1024] = "";
+
+int pengecekan(const char* word) {
+    for (int i = 0; i < hitungkata; i++) {
+        if (strcmp(word, kataunik[i]) == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int main(){
+FILE* lagu = fopen("lirik.txt", "r");
