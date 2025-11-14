@@ -56,3 +56,14 @@ if (lagu == NULL) {
 
     FILE* output = fopen("kosa-kata.txt", "w");
     if (output == NULL) {
+        printf("Error\n");
+        return 1;
+    }
+    fprintf(output, "%s", judul); 
+    for (int i = 0; i < hitungkata; i++) {
+        fprintf(output, "%s=\n", kataunik[i]); 
+    }  
+printf("Sekarang kak piwa bisa membaca kosa kata dari lirik lagu\n");
+printf("Total kata unik yang ditemukan: %d\n", hitungkata);
+return 0;
+}
