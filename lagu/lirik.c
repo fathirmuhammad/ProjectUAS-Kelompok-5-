@@ -21,3 +21,15 @@ int pengecekan(const char* word) {
 
 int main(){
 FILE* lagu = fopen("lirik.txt", "r");
+if (lagu == NULL) {
+        printf("Error\n");
+        return 1; 
+    }
+    
+    char line[1024]; 
+    const char buang[] = " .,?[]:-\n"; 
+    int barispertama = 1; 
+
+    while (fgets(line, sizeof(line), lagu) != NULL) {
+        if (barispertama) {
+            strcpy(judul, line);
