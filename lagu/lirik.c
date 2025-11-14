@@ -33,3 +33,14 @@ if (lagu == NULL) {
     while (fgets(line, sizeof(line), lagu) != NULL) {
         if (barispertama) {
             strcpy(judul, line);
+            barispertama = 0;
+            continue; 
+        }    
+        char *token = strtok(line, buang);
+        while (token != NULL) {
+            for (int i = 0; token[i] != '\0'; i++) {
+                token[i] = tolower(token[i]); 
+            }
+            if (strlen(token) > 0) { 
+                if (pengecekan(token)) {
+                    if (hitungkata < MAX_WORDS) {
