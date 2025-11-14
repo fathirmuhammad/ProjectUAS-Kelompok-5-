@@ -8,7 +8,7 @@
 
 char kataunik[MAX_WORDS][MAX_WORD_LEN]; 
 int hitungkata = 0; 
-char judul[1024] = "";
+char judul[1024] = "";
 
 int pengecekan(const char* word) {
     for (int i = 0; i < hitungkata; i++) {
@@ -20,7 +20,7 @@ int pengecekan(const char* word) {
 }
 
 int main(){
-FILE* lagu = fopen("lirik.txt", "r");
+FILE* lagu = fopen("lirik.txt", "r");
 if (lagu == NULL) {
         printf("Error\n");
         return 1; 
