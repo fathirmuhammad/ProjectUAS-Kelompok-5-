@@ -44,3 +44,15 @@ if (lagu == NULL) {
             if (strlen(token) > 0) { 
                 if (pengecekan(token)) {
                     if (hitungkata < MAX_WORDS) {
+                        strcpy(kataunik[hitungkata], token); 
+                        hitungkata++; 
+                    }
+                }
+            }
+            token = strtok(NULL, buang);
+        }
+    }
+    fclose(lagu);
+
+    FILE* output = fopen("kosa-kata.txt", "w");
+    if (output == NULL) {
