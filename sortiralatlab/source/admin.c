@@ -82,3 +82,19 @@ void add_alat() {
     scanf("%u", &alat_baru.jumlah_alat);
 
     FILE *fptr = fopen("../data/listbarang.txt", "a");
+    if (fptr == NULL) {
+        printf("Program Gagal: Gagal membuka file listbarang.txt!\n");
+        return;
+    }
+
+    fprintf(fptr, "\n%u;%s;%s;%s;%u;%u",
+            alat_baru.id_alat,
+            alat_baru.nama_alat,
+            alat_baru.merk_alat,
+            alat_baru.model_alat,
+            alat_baru.tahun_produksi_alat,
+            alat_baru.jumlah_alat);
+
+    fclose(fptr);
+
+    printf("\nProgram Berhasil: Alat baru telah ditambahkan ke listbarang.txt.\n");
