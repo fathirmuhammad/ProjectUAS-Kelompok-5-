@@ -98,3 +98,22 @@ void add_alat() {
     fclose(fptr);
 
     printf("\nProgram Berhasil: Alat baru telah ditambahkan ke listbarang.txt.\n");
+}
+
+void delete_alat() {
+    alat_lab daftar_alat[maxSize];
+    int jumlah_alat = 0;
+    unsigned int id_hapus;
+    int i, index_ditemukan = -1; 
+
+    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+
+    if (jumlah_alat == 0) {
+        printf("\nFile list_barang.txt kosong, tidak ada yang bisa dihapus.\n");
+        return;
+    }
+
+    printf("\n--- Daftar Alat Saat Ini ---");
+    view_list(); 
+
+    printf("Masukkan ID Alat yang ingin Anda hapus: ");
