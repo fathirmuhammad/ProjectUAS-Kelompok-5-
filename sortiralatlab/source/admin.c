@@ -132,3 +132,19 @@ void delete_alat() {
     }
 
     FILE *fptr = fopen("../data/listbarang.txt", "w");
+    if (fptr == NULL) {
+        printf("Program Gagal: Gagal membuka file listbarang.txt!\n");
+        return;
+    }
+
+    int baris_pertama_ditulis = 1; 
+
+    for (i = 0; i < jumlah_alat; i++) {
+        
+        if (i == index_ditemukan) { 
+            continue; 
+        }
+        if (baris_pertama_ditulis == 1) {
+            baris_pertama_ditulis = 0; 
+        } else {
+            fprintf(fptr, "\n");
