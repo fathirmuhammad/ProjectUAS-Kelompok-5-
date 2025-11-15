@@ -181,3 +181,20 @@ void update_alat() {
     view_list(); 
 
     printf("Masukkan ID Alat yang ingin Anda update: ");
+    scanf("%u", &id_update);
+
+    for (i = 0; i < jumlah_alat; i++) {
+        if (daftar_alat[i].id_alat == id_update) {
+            index_ditemukan = i; 
+            break; 
+        }
+    }
+
+    if (index_ditemukan == -1) {
+        printf("\nError: ID Alat %u tidak ditemukan.\n", id_update);
+        return; 
+    }
+
+    printf("\n--- Masukkan Data Baru untuk ID %u ---\n", id_update);
+    
+    printf("Masukkan Nama Alat Baru: ");
