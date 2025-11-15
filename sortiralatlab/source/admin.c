@@ -198,3 +198,17 @@ void update_alat() {
     printf("\n--- Masukkan Data Baru untuk ID %u ---\n", id_update);
     
     printf("Masukkan Nama Alat Baru: ");
+    scanf(" %[^\n]", daftar_alat[index_ditemukan].nama_alat); 
+
+    printf("Masukkan Merek Alat Baru: ");
+    scanf(" %[^\n]", daftar_alat[index_ditemukan].merk_alat);
+
+    printf("Masukkan Model Alat Baru: ");
+    scanf(" %[^\n]", daftar_alat[index_ditemukan].model_alat);
+
+    printf("Masukkan Tahun Produksi Baru: ");
+    scanf("%u", &daftar_alat[index_ditemukan].tahun_produksi_alat);
+
+    printf("Masukkan Jumlah Stok Baru: ");
+    scanf("%u", &daftar_alat[index_ditemukan].jumlah_alat);
+    
