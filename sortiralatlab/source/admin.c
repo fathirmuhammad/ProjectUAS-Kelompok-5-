@@ -165,3 +165,19 @@ void delete_alat() {
 }
 
 void update_alat() {
+    alat_lab daftar_alat[maxSize];
+    int jumlah_alat = 0;
+    unsigned int id_update;
+    int i, index_ditemukan = -1;
+
+    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+
+    if (jumlah_alat == 0) {
+        printf("\nFile list barang kosong, tidak ada yang bisa di-update.\n");
+        return;
+    }
+
+    printf("\n--- Daftar Alat Saat Ini ---");
+    view_list(); 
+
+    printf("Masukkan ID Alat yang ingin Anda update: ");
