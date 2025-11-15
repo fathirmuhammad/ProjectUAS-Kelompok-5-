@@ -67,3 +67,18 @@ void add_alat() {
     scanf("%u", &alat_baru.id_alat); 
 
     printf("Masukkan Nama Alat: ");
+    scanf(" %[^\n]", alat_baru.nama_alat); 
+
+    printf("Masukkan Merek Alat: ");
+    scanf(" %[^\n]", alat_baru.merk_alat);
+
+    printf("Masukkan Model Alat: ");
+    scanf(" %[^\n]", alat_baru.model_alat);
+
+    printf("Masukkan Tahun Produksi: ");
+    scanf("%u", &alat_baru.tahun_produksi_alat);
+
+    printf("Masukkan Jumlah Stok: ");
+    scanf("%u", &alat_baru.jumlah_alat);
+
+    FILE *fptr = fopen("../data/listbarang.txt", "a");
