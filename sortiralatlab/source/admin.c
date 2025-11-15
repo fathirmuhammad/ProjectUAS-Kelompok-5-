@@ -32,3 +32,19 @@ void menu_admin(){
 }
 
 void edit_list() {
+    int pilihan;
+    printf("\n========== Menu Edit Alat Lab ==========\n");
+    printf("1. Tambah Alat Lab Baru\n");
+    printf("2. Hapus Alat Lab\n");
+    printf("3. Update Data Alat Lab\n");
+    printf("4. Kembali ke Menu Utama\n");
+    printf("Pilih Menu: ");
+    scanf("%d", &pilihan);
+
+    switch (pilihan) {
+        case 1:
+            add_alat();
+            break;
+        case 2:
+            delete_alat();
+            break;
