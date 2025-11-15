@@ -148,3 +148,20 @@ void delete_alat() {
             baris_pertama_ditulis = 0; 
         } else {
             fprintf(fptr, "\n");
+        }
+
+        fprintf(fptr, "%u;%s;%s;%s;%u;%u",
+                daftar_alat[i].id_alat,
+                daftar_alat[i].nama_alat,
+                daftar_alat[i].merk_alat,
+                daftar_alat[i].model_alat,
+                daftar_alat[i].tahun_produksi_alat,
+                daftar_alat[i].jumlah_alat);
+    }
+
+    fclose(fptr);
+
+    printf("\nBERHASIL: Alat dengan ID %u telah dihapus dari listbarang.txt.\n", id_hapus);
+}
+
+void update_alat() {
