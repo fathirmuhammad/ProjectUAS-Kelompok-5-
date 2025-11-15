@@ -117,3 +117,18 @@ void delete_alat() {
     view_list(); 
 
     printf("Masukkan ID Alat yang ingin Anda hapus: ");
+    scanf("%u", &id_hapus);
+
+    for (i = 0; i < jumlah_alat; i++) {
+        if (daftar_alat[i].id_alat == id_hapus) {
+            index_ditemukan = i; 
+            break; 
+        }
+    }
+
+    if (index_ditemukan == -1) {
+        printf("\nProgram Gagal: ID Alat %u tidak ditemukan.\n", id_hapus);
+        return; 
+    }
+
+    FILE *fptr = fopen("../data/listbarang.txt", "w");
