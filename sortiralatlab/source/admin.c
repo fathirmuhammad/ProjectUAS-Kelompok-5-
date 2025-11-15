@@ -48,3 +48,22 @@ void edit_list() {
         case 2:
             delete_alat();
             break;
+        case 3:
+            update_alat();
+            break;
+        case 4:
+            printf("Kembali ke menu admin...\n");
+            break;
+        default:
+            printf("Pilihan tidak valid!\n");
+    }
+}
+
+void add_alat() {
+    alat_lab alat_baru; 
+
+    printf("\n--- Menambah Alat Lab Baru ---\n");
+    printf("Masukkan ID Alat: ");
+    scanf("%u", &alat_baru.id_alat); 
+
+    printf("Masukkan Nama Alat: ");
