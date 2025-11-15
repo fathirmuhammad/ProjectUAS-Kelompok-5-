@@ -14,3 +14,21 @@ void menu_admin(){
         switch(pilihan){
         case 1:
         view_list();
+        break;
+
+        case 2:
+        view_list_pinjam();
+        break;
+
+        case 3:
+        edit_list();
+        break;
+        
+        default:
+        printf("Input invalid\n");
+        break;
+        }
+    }while(pilihan != 4);
+}
+
+void edit_list() {
