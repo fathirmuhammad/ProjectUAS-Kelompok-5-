@@ -212,3 +212,27 @@ void update_alat() {
     printf("Masukkan Jumlah Stok Baru: ");
     scanf("%u", &daftar_alat[index_ditemukan].jumlah_alat);
     
+    FILE *fptr = fopen("../data/listbarang.txt", "w");
+    if (fptr == NULL) {
+        printf("Error: Gagal membuka file listbarang.txt!\n");
+        return;
+    }
+
+    for (i = 0; i < jumlah_alat; i++) {
+        if (i > 0) {
+            fprintf(fptr, "\n");
+        }
+
+        fprintf(fptr, "%u;%s;%s;%s;%u;%u",
+                daftar_alat[i].id_alat,
+                daftar_alat[i].nama_alat,
+                daftar_alat[i].merk_alat,
+                daftar_alat[i].model_alat,
+                daftar_alat[i].tahun_produksi_alat,
+                daftar_alat[i].jumlah_alat);
+    }
+
+    fclose(fptr);
+
+    printf("\nBERHASIL: Alat dengan ID %u telah di-update.\n", id_update);
+}
