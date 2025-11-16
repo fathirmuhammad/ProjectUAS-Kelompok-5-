@@ -29,7 +29,7 @@ void view_list() {
     alat_lab daftar_alat[maxSize];
     int jumlah_alat = 0;
 
-    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listbarang.txt");
 
     if (jumlah_alat == 0) {
         printf("Belum ada alat lab yang terdaftar di listbarang.txt\n");
@@ -56,7 +56,7 @@ void view_list_pinjam() {
     alat_lab daftar_alat[maxSize];
     int jumlah_alat = 0;
 
-    load_alat(daftar_alat, &jumlah_alat, "../data/listpinjam.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listpinjam.txt");
 
     if (jumlah_alat == 0) {
         printf("\nBelum ada alat lab yang sedang dipinjam.\n");

@@ -1,6 +1,3 @@
-#ifndef UTILS_H
-#define UTILS_H
-
 #include <stdio.h>
 #include <string.h>
 
@@ -28,4 +25,3 @@ void menu_user();
 void pinjam_alat();
 void kembalikan_alat();
 
-#endif

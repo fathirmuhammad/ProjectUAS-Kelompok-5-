@@ -38,7 +38,7 @@ void menu_user() {
 void pinjam_alat() {
     alat_lab daftar_alat[maxSize];
     int jumlah_alat = 0;
-    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listbarang.txt");
 
     view_list(); 
     if (jumlah_alat == 0) { return; }
@@ -75,7 +75,7 @@ void pinjam_alat() {
 
     daftar_alat[index_barang].jumlah_alat -= kuantitas_pinjam; 
 
-    FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
+    FILE *fptr_barang = fopen("data/listbarang.txt", "w");
     if (fptr_barang == NULL) {
         printf("Program Gagal: Gagal update file listbarang.txt!\n");
         return;
@@ -91,7 +91,7 @@ void pinjam_alat() {
 
     alat_lab daftar_pinjam[maxSize];
     int total_pinjaman = 0;
-    load_alat(daftar_pinjam, &total_pinjaman, "../data/listpinjam.txt");
+    load_alat(daftar_pinjam, &total_pinjaman, "data/listpinjam.txt");
 
     int index_pinjam = -1;
     for (int i = 0; i < total_pinjaman; i++) {
@@ -108,7 +108,7 @@ void pinjam_alat() {
         total_pinjaman++; 
     }
 
-    FILE *fptr_pinjam = fopen("../data/listpinjam.txt", "w");
+    FILE *fptr_pinjam = fopen("data/listpinjam.txt", "w");
     if (fptr_pinjam == NULL) {
         printf("Error: Gagal update file listpinjam.txt!\n");
         return;
@@ -128,7 +128,7 @@ void pinjam_alat() {
 void kembalikan_alat() {
     alat_lab daftar_pinjam[maxSize];
     int jumlah_pinjam = 0;
-    load_alat(daftar_pinjam, &jumlah_pinjam, "../data/listpinjam.txt");
+    load_alat(daftar_pinjam, &jumlah_pinjam, "data/listpinjam.txt");
 
     printf("\n--- Alat yang Sedang Anda Pinjam ---");
     view_list_pinjam(); 
@@ -162,7 +162,7 @@ void kembalikan_alat() {
 
     alat_lab daftar_alat[maxSize];
     int jumlah_alat = 0;
-    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listbarang.txt");
 
     int index_barang = -1; 
     for (int i = 0; i < jumlah_alat; i++) {
@@ -175,7 +175,7 @@ void kembalikan_alat() {
     if (index_barang != -1) { 
         daftar_alat[index_barang].jumlah_alat += kuantitas_kembali;
         
-        FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
+        FILE *fptr_barang = fopen("data/listbarang.txt", "w");
         if (fptr_barang == NULL){
             return; 
         }
@@ -200,7 +200,7 @@ void kembalikan_alat() {
         jumlah_pinjam--; 
     }
     
-    FILE *fptr_pinjam = fopen("../data/listpinjam.txt", "w");
+    FILE *fptr_pinjam = fopen("data/listpinjam.txt", "w");
     if (fptr_pinjam == NULL) {
         return; 
     }

@@ -5,7 +5,7 @@ int login(char *username, char *password){
     char temp_password[maxSize];
 
     FILE *fptr;
-    fptr = fopen("../data/admin.txt", "r");
+    fptr = fopen("data/admin.txt", "r");
 
     if (fptr == NULL)
     {
@@ -22,7 +22,7 @@ int login(char *username, char *password){
 
     fclose(fptr);
 
-    fptr = fopen("../data/user.txt", "r");
+    fptr = fopen("data/user.txt", "r");
 
     if (fptr == NULL){
         printf("Program Gagal : file user.txt tidak ditemukan\n");

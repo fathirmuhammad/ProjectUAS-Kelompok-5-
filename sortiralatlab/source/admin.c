@@ -24,6 +24,10 @@ void menu_admin(){
         edit_list();
         break;
         
+        case 4:
+        printf("Keluar dari menu admin...\n");
+        break;
+
         default:
         printf("Input invalid\n");
         break;
@@ -81,7 +85,7 @@ void add_alat() {
     printf("Masukkan Jumlah Stok: ");
     scanf("%u", &alat_baru.jumlah_alat);
 
-    FILE *fptr = fopen("../data/listbarang.txt", "a");
+    FILE *fptr = fopen("data/listbarang.txt", "a");
     if (fptr == NULL) {
         printf("Program Gagal: Gagal membuka file listbarang.txt!\n");
         return;
@@ -106,7 +110,7 @@ void delete_alat() {
     unsigned int id_hapus;
     int i, index_ditemukan = -1; 
 
-    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listbarang.txt");
 
     if (jumlah_alat == 0) {
         printf("\nFile list_barang.txt kosong, tidak ada yang bisa dihapus.\n");
@@ -131,7 +135,7 @@ void delete_alat() {
         return; 
     }
 
-    FILE *fptr = fopen("../data/listbarang.txt", "w");
+    FILE *fptr = fopen("data/listbarang.txt", "w");
     if (fptr == NULL) {
         printf("Program Gagal: Gagal membuka file listbarang.txt!\n");
         return;
@@ -170,7 +174,7 @@ void update_alat() {
     unsigned int id_update;
     int i, index_ditemukan = -1;
 
-    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+    load_alat(daftar_alat, &jumlah_alat, "data/listbarang.txt");
 
     if (jumlah_alat == 0) {
         printf("\nFile list barang kosong, tidak ada yang bisa di-update.\n");
@@ -212,7 +216,7 @@ void update_alat() {
     printf("Masukkan Jumlah Stok Baru: ");
     scanf("%u", &daftar_alat[index_ditemukan].jumlah_alat);
     
-    FILE *fptr = fopen("../data/listbarang.txt", "w");
+    FILE *fptr = fopen("data/listbarang.txt", "w");
     if (fptr == NULL) {
         printf("Error: Gagal membuka file listbarang.txt!\n");
         return;
