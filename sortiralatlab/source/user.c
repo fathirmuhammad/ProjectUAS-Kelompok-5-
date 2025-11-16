@@ -38,3 +38,20 @@ void menu_user() {
 void pinjam_alat() {
     alat_lab daftar_alat[maxSize];
     int jumlah_alat = 0;
+    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+
+    view_list(); 
+    if (jumlah_alat == 0) { return; }
+
+    unsigned int id_pinjam;
+    int kuantitas_pinjam; 
+    int index_barang = -1; 
+
+    printf("Masukkan ID Alat yang ingin dipinjam: ");
+    scanf("%u", &id_pinjam);
+    for (int i = 0; i < jumlah_alat; i++) {
+        if (daftar_alat[i].id_alat == id_pinjam) {
+            index_barang = i; 
+            break;
+        }
+    }
