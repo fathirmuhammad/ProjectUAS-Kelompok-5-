@@ -198,3 +198,20 @@ void kembalikan_alat() {
             daftar_pinjam[i] = daftar_pinjam[i + 1];
         }
         jumlah_pinjam--; 
+    }
+    
+    FILE *fptr_pinjam = fopen("../data/listpinjam.txt", "w");
+    if (fptr_pinjam == NULL) {
+        return; 
+    }
+    for (int i = 0; i < jumlah_pinjam; i++) {
+        if (i > 0) { fprintf(fptr_pinjam, "\n"); }
+        fprintf(fptr_pinjam, "%u;%s;%s;%s;%u;%u",
+                daftar_pinjam[i].id_alat, daftar_pinjam[i].nama_alat,
+                daftar_pinjam[i].merk_alat, daftar_pinjam[i].model_alat,
+                daftar_pinjam[i].tahun_produksi_alat, daftar_pinjam[i].jumlah_alat);
+    }
+    fclose(fptr_pinjam);
+
+    printf("\nProgram BERHASIL: Anda telah mengembalikan %d unit alat.\n", kuantitas_kembali);
+}
