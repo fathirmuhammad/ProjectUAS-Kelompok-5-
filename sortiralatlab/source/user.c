@@ -21,3 +21,20 @@ void menu_user() {
                 break;
             case 3:
                 pinjam_alat();
+                break;
+            case 4:
+                kembalikan_alat(); 
+                break;
+            case 5: 
+                printf("Keluar dari menu user...\n");
+                break;
+            default:
+                printf("Pilihan tidak valid!\n");
+                break;
+        }
+    } while (pilihan != 5); // Loop berhenti jika pilihan = 5
+}
+
+void pinjam_alat() {
+    alat_lab daftar_alat[maxSize];
+    int jumlah_alat = 0;
