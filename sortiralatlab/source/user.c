@@ -76,3 +76,18 @@ void pinjam_alat() {
     daftar_alat[index_barang].jumlah_alat -= kuantitas_pinjam; 
 
     FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
+    if (fptr_barang == NULL) {
+        printf("Program Gagal: Gagal update file listbarang.txt!\n");
+        return;
+    }
+    for (int i = 0; i < jumlah_alat; i++) {
+        if (i > 0) { fprintf(fptr_barang, "\n"); }
+        fprintf(fptr_barang, "%u;%s;%s;%s;%u;%u",
+                daftar_alat[i].id_alat, daftar_alat[i].nama_alat,
+                daftar_alat[i].merk_alat, daftar_alat[i].model_alat,
+                daftar_alat[i].tahun_produksi_alat, daftar_alat[i].jumlah_alat);
+    }
+    fclose(fptr_barang);
+
+    alat_lab daftar_pinjam[maxSize];
+    int total_pinjaman = 0;
