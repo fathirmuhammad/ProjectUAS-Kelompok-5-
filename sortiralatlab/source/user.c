@@ -55,3 +55,24 @@ void pinjam_alat() {
             break;
         }
     }
+    if (index_barang == -1){
+        return; 
+    }
+
+    printf("Masukkan jumlah yang ingin dipinjam (Stok tersedia: %u): ", daftar_alat[index_barang].jumlah_alat);
+    scanf("%d", &kuantitas_pinjam); 
+
+    if (kuantitas_pinjam <= 0){
+        return; 
+    }
+    if (kuantitas_pinjam > daftar_alat[index_barang].jumlah_alat) {
+        return; 
+    }
+
+  
+    alat_lab alat_yg_dipinjam = daftar_alat[index_barang];
+    alat_yg_dipinjam.jumlah_alat = kuantitas_pinjam; 
+
+    daftar_alat[index_barang].jumlah_alat -= kuantitas_pinjam; 
+
+    FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
