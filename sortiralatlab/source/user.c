@@ -91,3 +91,21 @@ void pinjam_alat() {
 
     alat_lab daftar_pinjam[maxSize];
     int total_pinjaman = 0;
+    load_alat(daftar_pinjam, &total_pinjaman, "../data/listpinjam.txt");
+
+    int index_pinjam = -1;
+    for (int i = 0; i < total_pinjaman; i++) {
+        if (daftar_pinjam[i].id_alat == id_pinjam) {
+            index_pinjam = i;
+            break;
+        }
+    }
+
+    if (index_pinjam != -1) { 
+        daftar_pinjam[index_pinjam].jumlah_alat += kuantitas_pinjam; 
+    } else { 
+        daftar_pinjam[total_pinjaman] = alat_yg_dipinjam;
+        total_pinjaman++; 
+    }
+
+    FILE *fptr_pinjam = fopen("../data/listpinjam.txt", "w");
