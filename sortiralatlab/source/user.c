@@ -176,3 +176,25 @@ void kembalikan_alat() {
         daftar_alat[index_barang].jumlah_alat += kuantitas_kembali;
         
         FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
+        if (fptr_barang == NULL){
+            return; 
+        }
+        for (int i = 0; i < jumlah_alat; i++) {
+            if (i > 0) { fprintf(fptr_barang, "\n"); }
+            fprintf(fptr_barang, "%u;%s;%s;%s;%u;%u",
+                    daftar_alat[i].id_alat, daftar_alat[i].nama_alat,
+                    daftar_alat[i].merk_alat, daftar_alat[i].model_alat,
+                    daftar_alat[i].tahun_produksi_alat, daftar_alat[i].jumlah_alat);
+        }
+        fclose(fptr_barang);
+    } else {
+        printf("Info: Stok utama untuk barang ini tidak ditemukan, data pinjaman tetap dihapus.\n");
+    }
+
+    daftar_pinjam[index_pinjam].jumlah_alat -= kuantitas_kembali;
+
+    if (daftar_pinjam[index_pinjam].jumlah_alat == 0) {
+        for (int i = index_pinjam; i < jumlah_pinjam - 1; i++) {
+            daftar_pinjam[i] = daftar_pinjam[i + 1];
+        }
+        jumlah_pinjam--; 
