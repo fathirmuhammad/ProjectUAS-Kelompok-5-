@@ -161,3 +161,18 @@ void kembalikan_alat() {
     }
 
     alat_lab daftar_alat[maxSize];
+    int jumlah_alat = 0;
+    load_alat(daftar_alat, &jumlah_alat, "../data/listbarang.txt");
+
+    int index_barang = -1; 
+    for (int i = 0; i < jumlah_alat; i++) {
+        if (daftar_alat[i].id_alat == id_kembali) {
+            index_barang = i;
+            break;
+        }
+    }
+
+    if (index_barang != -1) { 
+        daftar_alat[index_barang].jumlah_alat += kuantitas_kembali;
+        
+        FILE *fptr_barang = fopen("../data/listbarang.txt", "w");
