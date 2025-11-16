@@ -126,3 +126,21 @@ void pinjam_alat() {
 }
 
 void kembalikan_alat() {
+    alat_lab daftar_pinjam[maxSize];
+    int jumlah_pinjam = 0;
+    load_alat(daftar_pinjam, &jumlah_pinjam, "../data/listpinjam.txt");
+
+    printf("\n--- Alat yang Sedang Anda Pinjam ---");
+    view_list_pinjam(); 
+    if (jumlah_pinjam == 0) { return; }
+
+    unsigned int id_kembali;
+    int kuantitas_kembali;
+    int index_pinjam = -1;
+
+    printf("Masukkan ID Alat yang ingin dikembalikan: ");
+    scanf("%u", &id_kembali);
+    for (int i = 0; i < jumlah_pinjam; i++) {
+        if (daftar_pinjam[i].id_alat == id_kembali) {
+            index_pinjam = i; 
+            break;
