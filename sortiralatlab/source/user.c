@@ -144,3 +144,20 @@ void kembalikan_alat() {
         if (daftar_pinjam[i].id_alat == id_kembali) {
             index_pinjam = i; 
             break;
+            }
+    }
+    if (index_pinjam == -1){
+        return; 
+    }
+
+    printf("Masukkan jumlah yang ingin dikembalikan (Anda pinjam: %u): ", daftar_pinjam[index_pinjam].jumlah_alat);
+    scanf("%d", &kuantitas_kembali);
+
+    if (kuantitas_kembali <= 0){
+        return; 
+    }
+    if (kuantitas_kembali > daftar_pinjam[index_pinjam].jumlah_alat){
+        return; 
+    }
+
+    alat_lab daftar_alat[maxSize];
