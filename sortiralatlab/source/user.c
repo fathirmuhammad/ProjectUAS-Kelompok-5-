@@ -109,3 +109,20 @@ void pinjam_alat() {
     }
 
     FILE *fptr_pinjam = fopen("../data/listpinjam.txt", "w");
+    if (fptr_pinjam == NULL) {
+        printf("Error: Gagal update file listpinjam.txt!\n");
+        return;
+    }
+    for (int i = 0; i < total_pinjaman; i++) {
+        if (i > 0) { fprintf(fptr_pinjam, "\n"); }
+        fprintf(fptr_pinjam, "%u;%s;%s;%s;%u;%u",
+                daftar_pinjam[i].id_alat, daftar_pinjam[i].nama_alat,
+                daftar_pinjam[i].merk_alat, daftar_pinjam[i].model_alat,
+                daftar_pinjam[i].tahun_produksi_alat, daftar_pinjam[i].jumlah_alat);
+    }
+    fclose(fptr_pinjam);
+
+    printf("\nProgram BERHASIL: Anda telah meminjam %d unit %s.\n", kuantitas_pinjam, alat_yg_dipinjam.nama_alat);
+}
+
+void kembalikan_alat() {
