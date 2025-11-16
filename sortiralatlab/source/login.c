@@ -30,3 +30,13 @@ int login(char *username, char *password){
     }
 
     while (fscanf(fptr, "%s %s", temp_username, temp_password) == 2){
+        if (strcmp(username, temp_username) == 0 && strcmp(password, temp_password) == 0){
+            fclose(fptr);
+            return 2;
+        }
+    }
+    fclose(fptr);
+
+    printf("Login Gagal\n, username atau password yang dimasukkan salah\n");
+    return 0;
+}
